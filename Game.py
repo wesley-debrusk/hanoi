@@ -34,14 +34,17 @@ class Hanoi:
 		return index
 
 	def make_move(self, source, destination):
-		sourceIndex = self.get_top_ring_index(source)
-		destinationIndex = self.get_top_ring_index(destination) - 1
-		destVal = self.towers[destination][destinationIndex + 1]
-		sourceVal = self.towers[source][sourceIndex]
-		if (sourceVal < destVal or destVal == 0):
-			self.towers[destination][destinationIndex] = sourceVal
-			self.towers[source][sourceIndex] = 0
-			return True
+		if (source <= 2 and destination <= 2):
+			sourceIndex = self.get_top_ring_index(source)
+			destinationIndex = self.get_top_ring_index(destination) - 1
+			destVal = self.towers[destination][destinationIndex + 1]
+			sourceVal = self.towers[source][sourceIndex]
+			if (sourceVal >  (destVal if destVal != 0 else 100) or sourceVal == 0 or source == destination):
+				return False
+			else:
+				self.towers[destination][destinationIndex] = sourceVal
+				self.towers[source][sourceIndex] = 0
+				return True
 		else:
 			return False
 

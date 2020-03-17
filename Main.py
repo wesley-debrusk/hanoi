@@ -6,7 +6,7 @@ def clear_screen():
 
 
 def main():
-	game = Game.Hanoi(3)
+	game = Game.Hanoi(4)
 	game.print_board()
 
 	while (True):
