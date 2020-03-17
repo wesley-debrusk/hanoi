@@ -16,6 +16,9 @@ def main():
 		game.make_move(source, destination)
 		clear_screen()
 		game.print_board()
+		if(game.check_victory()):
+			print("You win!")
+			break
 
 
 if __name__ == "__main__":

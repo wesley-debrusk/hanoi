@@ -39,6 +39,14 @@ class Hanoi:
 		self.towers[destination][destinationIndex] = self.towers[source][sourceIndex]
 		self.towers[source][sourceIndex] = 0
 
+	def check_victory(self):
+		for x in range(self.numRings):
+			if (self.towers[0][x] == 0 and self.towers[1][x] == 0):
+				continue
+			else:
+				return False
+		return True
+
 
 def display(num):
 	if (num == 0):
