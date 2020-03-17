@@ -16,29 +16,28 @@ class Hanoi:
 
 
 	def print_board(self):
-		#self.make_move()
-		#self.make_move()
-		# for x in range(self.numRings):
-		# 	print("   |      |      |   ")
-		# 	print("   " + display(self.towers[0][x]) + "      " + display(self.towers[1][x]) + "      " + display(self.towers[2][x]) + "   ");
-		# print("   |      |      |   ")
-		# print("_____________________")
+		#self.make_move(0,1)
+		for x in range(self.numRings):
+			print("   |      |      |   ")
+			print("   " + display(self.towers[0][x]) + "      " + display(self.towers[1][x]) + "      " + display(self.towers[2][x]) + "   ");
+		print("   |      |      |   ")
+		print("_____________________")
 		print(self.towers)
 		#print(self.get_top_ring_index(self.tower1))
 
 	def get_top_ring_index(self, tower):
 		index = 0
 		for x in range(self.numRings):
-			if (tower[x] != 0):
+			if (self.towers[tower][x] != 0):
 				index = x
 				break
 		return index
 
-	def make_move(self):
-		sourceIndex = self.get_top_ring_index(self.tower1)
-		destinationIndex = self.get_top_ring_index(self.tower2) - 1
-		self.tower2[destinationIndex] = self.tower1[sourceIndex]
-		self.tower1[sourceIndex] = 0
+	def make_move(self, source, destination):
+		sourceIndex = self.get_top_ring_index(source)
+		destinationIndex = self.get_top_ring_index(destination) - 1
+		self.towers[destination][destinationIndex] = self.towers[source][sourceIndex]
+		self.towers[source][sourceIndex] = 0
 
 
 def display(num):
