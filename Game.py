@@ -36,8 +36,14 @@ class Hanoi:
 	def make_move(self, source, destination):
 		sourceIndex = self.get_top_ring_index(source)
 		destinationIndex = self.get_top_ring_index(destination) - 1
-		self.towers[destination][destinationIndex] = self.towers[source][sourceIndex]
-		self.towers[source][sourceIndex] = 0
+		destVal = self.towers[destination][destinationIndex + 1]
+		sourceVal = self.towers[source][sourceIndex]
+		if (sourceVal < destVal or destVal == 0):
+			self.towers[destination][destinationIndex] = sourceVal
+			self.towers[source][sourceIndex] = 0
+			return True
+		else:
+			return False
 
 	def check_victory(self):
 		for x in range(self.numRings):
