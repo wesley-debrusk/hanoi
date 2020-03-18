@@ -3,10 +3,12 @@ import os
 
 def clear_screen():
 	os.system('cls' if os.name == 'nt' else 'clear')
-
+	print("---Towers of Hanoi---")
+	print("")
 
 def main():
-	game = Game.Hanoi(4)
+	clear_screen()
+	game = Game.Hanoi(3)
 	game.print_board()
 
 	while (True):
@@ -24,7 +26,6 @@ def main():
 		else:
 			print("Invalid move")
 			continue
-
 
 
 if __name__ == "__main__":

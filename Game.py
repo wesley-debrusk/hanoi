@@ -1,6 +1,4 @@
 
-
-
 class Hanoi:
 	def __init__(self, rings):
 		self.numRings = rings
@@ -8,12 +6,10 @@ class Hanoi:
 		for x in range(3):
 			self.towers.append([])
 
-
 		for x in range(self.numRings):
 			self.towers[0].append(x + 1)
 			self.towers[1].append(0)
 			self.towers[2].append(0)
-
 
 	def print_board(self):
 		#self.make_move(0,1)
@@ -22,8 +18,7 @@ class Hanoi:
 			print("   " + display(self.towers[0][x]) + "      " + display(self.towers[1][x]) + "      " + display(self.towers[2][x]) + "   ");
 		print("   |      |      |   ")
 		print("_____________________")
-		print(self.towers)
-		#print(self.get_top_ring_index(self.tower1))
+		#print(self.towers)
 
 	def get_top_ring_index(self, tower):
 		index = 0
